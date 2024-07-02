@@ -3,37 +3,31 @@ apiVersion: ocs.openshift.io/v1
 kind: StorageCluster
 metadata:
   annotations:
-    cluster.ocs.openshift.io/local-devices: "true"
     uninstall.ocs.openshift.io/cleanup-policy: delete
     uninstall.ocs.openshift.io/mode: graceful
   name: ocs-storagecluster
   namespace: openshift-storage
 spec:
   placement:
-    tolerations:
-      - key: node.ocs.openshift.io/storage
-        effect: NoSchedule
-        value: "true"
     all:
       tolerations:
         - key: node.ocs.openshift.io/storage
           effect: NoSchedule
           value: "true"
-    mds:
-      tolerations:
-        - key: node.ocs.openshift.io/storage
-          effect: NoSchedule
-          value: "true"
-    noobaa-core:
-      tolerations:
-        - key: node.ocs.openshift.io/storage
-          effect: NoSchedule
-          value: "true"
-    rgw:
-      tolerations:
-        - key: node.ocs.openshift.io/storage
-          effect: NoSchedule
-          value: "true"
+  arbiter: {}
+  encryption:
+    kms: {}
+  externalStorage: {}
+  managedResources:
+    cephBlockPools: {}
+    cephCluster: {}
+    cephConfig: {}
+    cephDashboard: {}
+    cephFilesystems: {}
+    cephObjectStoreUsers: {}
+    cephObjectStores: {}
+    cephToolbox: {}
+  mirroring: {}
   multiCloudGateway:
     dbStorageClassName: gp3-csi
     reconcileStrategy: standalone
