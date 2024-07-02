@@ -15,8 +15,8 @@ placementBindingDefaults:
 policies:
   - name: odf-operator
     remediationAction: enforce
-    dependencies:
-      - name: lso-operator-status
+#    dependencies:
+#      - name: lso-operator-status
     manifests:
       - path: config/namespace.yml
       - path: config/operatorgroup.yml
@@ -46,6 +46,4 @@ policySets:
   - name: odf-operator
     placement:
       placementRulePath: placements/hub-placement.yaml
-#    placement:
-#      placementName: "ft-storage--odf"
 
