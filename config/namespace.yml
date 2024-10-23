@@ -6,4 +6,6 @@ metadata:
     openshift.io/cluster-monitoring: "true"
   annotations:
     openshift.io/node-selector: 'cluster.ocs.openshift.io/openshift-storage='
+    scheduler.alpha.kubernetes.io/defaultTolerations: >-
+      [{"effect": "NoSchedule", "key": "node.ocs.openshift.io/storage"}]
   name: openshift-storage
